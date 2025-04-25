@@ -181,10 +181,10 @@ resource "aws_security_group" "instance_sg" {
   vpc_id      = aws_vpc.main_vpc.id
 
   ingress {
-    from_port   = 3000
-    to_port     = 3000
-    protocol    = "tcp"
-    cidr_blocks = ["175.20.0.0/16"]
+    from_port       = 3000
+    to_port         = 3000
+    protocol        = "tcp"
+    security_groups = [aws_security_group.lb_sg.id]
   }
 
   egress {
