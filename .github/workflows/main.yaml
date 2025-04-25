@@ -35,7 +35,7 @@ jobs:
                   ECR_REPOSITORY: test-api
                   WORKER_IMAGE_TAG: worker-${{ github.ref_name }}-latest
               run: |
-                  docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$WORKER_IMAGE_TAG .
+                  docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$WORKER_IMAGE_TAG ./test-api
                   docker push $ECR_REGISTRY/$ECR_REPOSITORY:$WORKER_IMAGE_TAG
     deployNode1:
         needs: build
