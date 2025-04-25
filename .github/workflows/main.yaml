@@ -37,8 +37,29 @@ jobs:
               run: |
                   docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$WORKER_IMAGE_TAG .
                   docker push $ECR_REGISTRY/$ECR_REPOSITORY:$WORKER_IMAGE_TAG
-    deploy:
+    deployNode1:
         needs: build
+        name: Hello World on node1
+        runs-on: ubuntu-latest
+        steps:
+            - name: Hello World
+              run: echo "Hello World on node1"
+    deployNode2:
+        needs: build
+        name: Hello World on node2
+        runs-on: ubuntu-latest
+        steps:
+            - name: Hello World
+              run: echo "Hello World on node2"
+    deployNode3:
+        needs: build
+        name: Hello World on node3
+        runs-on: ubuntu-latest
+        steps:
+            - name: Hello World
+              run: echo "Hello World on node3"
+    deploy:
+        needs: [deployNode1, deployNode2, deployNode3]
         name: Example Deploy Terraform to AWS
         runs-on: ubuntu-latest
         steps:
