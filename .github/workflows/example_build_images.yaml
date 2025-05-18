@@ -1,5 +1,4 @@
 name: Example Build Image
-
 on:
     push:
         branches:
