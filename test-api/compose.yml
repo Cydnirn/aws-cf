@@ -1,0 +1,7 @@
+services:
+  test-api:
+    image: test-api:latest
+    container_name: test-api
+    ports:
+      - '8080:8080' # Assuming the API runs on port 8080
+    restart: unless-stopped
