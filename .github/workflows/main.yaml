@@ -2,8 +2,8 @@
 name: Deploy Terraform to AWS
 on:
     push:
-        branches:
-            - "main"
+        tags:
+            - "v*.*.*" # Trigger on version tags
 
 permissions:
     id-token: write
